@@ -17,10 +17,9 @@ class Calcular {
     gi = GestionarImpuestos(this);
   }
 
-  // Método para iniciar el proceso de cálculo y solicitar los datos en el orden correcto
+  
   void iniciarCalculo() {
-    gc.solicitarDatos();  // Primero pide los datos relacionados a los costos
-    gg.solicitarDatos();  // Luego los relacionados a los gastos
+    gc.solicitarDatos();  
   }
   void invocarMetodosDinamicos() {
   InstanceMirror im = reflect(this);
@@ -33,7 +32,7 @@ class Calcular {
     if (declarationMirror is MethodMirror && declarationMirror.isRegularMethod) {
       String methodName = MirrorSystem.getName(symbol);
 
-      // Llamar solo a los métodos que empiezan con 'calcular'
+      
       if (methodName.startsWith("calcular")) {
         print("Invocando $methodName...");
         

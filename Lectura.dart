@@ -1,4 +1,4 @@
-import 'dart:io';
+/*import 'dart:io';
 
 class Lectura {
 
@@ -22,5 +22,47 @@ class Lectura {
   }
 
 
-} 
+} */
+import 'dart:io';
+
+class Lectura {
+  int leerI(String mensaje) {
+    int? dato;
+    while (dato == null) {
+      stdout.write(mensaje);
+      try {
+        dato = int.parse(stdin.readLineSync()!);
+      } catch (e) {
+        print("Error: Por favor, ingrese un número entero válido.");
+      }
+    }
+    return dato;
+  }
+
+  double leerDouble(String mensaje) {
+    double? dato;
+    while (dato == null) {
+      stdout.write(mensaje);
+      try {
+        dato = double.parse(stdin.readLineSync()!);
+      } catch (e) {
+        print("Error: Por favor, ingrese un número decimal válido.");
+      }
+    }
+    return dato;
+  }
+
+  String leerString(String mensaje) {
+    String? dato;
+    while (dato == null || dato.isEmpty) {
+      stdout.write(mensaje);
+      dato = stdin.readLineSync();
+      if (dato == null || dato.isEmpty) {
+        print("Error: Por favor, ingrese un texto válido.");
+      }
+    }
+    return dato;
+  }
+}
+
 
